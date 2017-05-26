@@ -1,0 +1,23 @@
+//Intro section
+#intro {
+  height: 75vh;
+  padding-top: 20vh;
+  background-color: #5DA9E9;
+  z-index: 3;
+  #logo {
+    width: 5%;
+  }
+  h1 {
+    font-size: 6em;
+    line-height: 2em;
+    color: #ffffff;
+  }
+  h2 {
+    font-size: 1.5em;
+    color: #ffffff;
+    padding: 0 15%;
+  }
+  p {
+    color: #ffffff;
+  }
+}

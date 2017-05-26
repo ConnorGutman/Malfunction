@@ -1,0 +1,145 @@
+@import '_nav';
+@import '_intro';
+@import '_about';
+@import '_glitch';
+
+//Fonts
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+p {
+  font-family: 'Source Serif Pro', serif;
+}
+
+//coverr
+#coverr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75vh;
+}
+@-webkit-keyframes demo {
+  0%, 10%       { opacity: 0; }
+  40%,60% { opacity: 0.2;}
+90%, 100%     { opacity: 0; }
+}
+
+#coverr-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75vh;
+  background: url('../img/static.gif');
+  opacity: 0;
+  -webkit-animation-name: demo;
+   -webkit-animation-duration: 10000ms;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-delay: 2s;
+   -webkit-animation-timing-function: ease-in-out;
+  //z-index: 2;
+}
+.hidden {
+  display: none !important;
+}
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 75vh;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+.video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+
+//Names
+.create-text {
+  position: absolute;
+  margin-left: 20%;
+}
+.entries {
+  padding: 1em 0;
+  margin: 1em auto;
+  height: 3em;
+}
+.entries .entry {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: none;
+}
+
+//slider
+.before-and-after-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.before-and-after {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  cursor: ew-resize;
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+.subject-before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  width: 100%;
+}
+.subject-scraper {
+  overflow: hidden;
+  transform: translate(50%, 0);
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    height: 100%;
+    width: 0.25em;
+    content: '';
+    background: #fff;
+  }
+}
+.subject-after {
+  transform: translate(-50%, 0);
+  filter:grayscale(100%);
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div id="coverr">
+    <div class="homepage-hero-module">
+      <div class="video-container">
+        <div class="filter"></div>
+        <video autoplay loop class="fillWidth">
+          <source src="img/Aloha-Mundo.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+          <source src="img/Aloha-Mundo.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+        <div class="poster hidden">
+          <img src="img/coverr.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="coverr-overlay"></div>
+  <nav class="navbar navbar-fixed-top">
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+      &#9776;
+    </button>
+    <div class="collapse navbar-toggleable-xs" id="nav">
+      <a class="navbar-brand" href="index.html">Malfunction.io</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="projects.html">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="freelace.html">Freelance</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row" id="intro">
+      <div class="col-xs-12">
+        <div class="glitch" data-text="Malfunction">Malfunction</div>
+        <!--<h2 class="text-xs-center">&lt;rm -rf /> my thoughts</h2>-->
+        <h2 class="text-xs-center">I'm alright.</h2>
+      </div>
+    </div>
+    <div class="row" id="about">
+      <div class="col-xs-12">
+        <div class="col-xs-5">
+          <img src="img/me.jpg" alt="My face" class="my-face">
+        </div>
+        <div class="col-xs-7">
+          <h2>user@host:~$ man Connor</h2>
+          <p>Hello! My name is Connor Gutman. Programmer, Game of Thrones watcher, and kale enthusiest.</p>
+          <h2>Why Malfunction?</h2>
+          <p>Do you know how freaking hard it is to find short cool domains? Look it up!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+  <!-- jQuery first, then Bootstrap JS. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+
+      scaleVideoContainer();
+
+      initBannerVideoSize('.video-container .poster img');
+      initBannerVideoSize('.video-container .filter');
+      initBannerVideoSize('.video-container video');
+
+      $(window).on('resize', function() {
+        scaleVideoContainer();
+        scaleBannerVideoSize('.video-container .poster img');
+        scaleBannerVideoSize('.video-container .filter');
+        scaleBannerVideoSize('.video-container video');
+      });
+
+    });
+
+    function scaleVideoContainer() {
+
+      var height = $(window).height() + 5;
+      var unitHeight = parseInt(height) + 'px';
+      $('.homepage-hero-module').css('height', unitHeight);
+
+    }
+
+    function initBannerVideoSize(element) {
+
+      $(element).each(function() {
+        $(this).data('height', $(this).height());
+        $(this).data('width', $(this).width());
+      });
+
+      scaleBannerVideoSize(element);
+
+    }
+
+    function scaleBannerVideoSize(element) {
+
+      var windowWidth = $(window).width(),
+        windowHeight = $(window).height() + 5,
+        videoWidth,
+        videoHeight;
+
+      console.log(windowHeight);
+
+      $(element).each(function() {
+        var videoAspectRatio = $(this).data('height') / $(this).data('width');
+
+        $(this).width(windowWidth);
+
+        if (windowWidth < 1000) {
+          videoHeight = windowHeight;
+          videoWidth = videoHeight / videoAspectRatio;
+          $(this).css({
+            'margin-top': 0,
+            'margin-left': -(videoWidth - windowWidth) / 2 + 'px'
+          });
+
+          $(this).width(videoWidth).height(videoHeight);
+        }
+
+        $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
+
+      });
+    }
+  </script>
+  <script>
+    $(document).ready(function() {
+      function scroll_style() {
+        var window_top = $(window).scrollTop();
+        var about = ($('#about').offset().top) - 100;
+
+        if (window_top > about) {
+          $('.navbar-brand').css({
+            "color": "#000000"
+          });
+          $('#nav ul li a').css({
+            "color": "#000000"
+          });
+          $('nav').css({
+            "background-color": "#ffffff",
+            "margin": "0"
+          });
+        }
+        if (window_top < about) {
+          $('.navbar-brand').css({
+            "color": "#ffffff"
+          });
+          $('#nav ul li a').css({
+            "color": "#ffffff"
+          });
+          $('nav').css({
+            "background-color": "transparent",
+            "margin": "2vh 5%"
+          });
+        }
+      }
+      $(function() {
+        $(window).scroll(scroll_style);
+        scroll_style();
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+nav {
+  margin: 2vh 5%;
+  transition: all 1s ease;
+  #nav {
+    .navbar-brand {
+      color: #ffffff;
+    }
+    ul {
+      @media(min-width: 48em) {
+        float: right;
+      }
+      li {
+        a {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

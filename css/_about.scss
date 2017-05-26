@@ -1,0 +1,82 @@
+#about {
+  padding: 10vh 12% 0;
+  .col-xs-12 {
+    p {
+      font-size: 1.25em;
+      text-align: justify;
+    }
+    hr {
+      width: 25%;
+      margin: 5vh 0 5vh 37.5%;
+      border: 1px solid black;
+    }
+    #malfunction-icon, #face-icon, #location-icon {
+      width: 100%;
+    }
+    #myself {
+      width: 33.33%;
+    }
+    #myself-home {
+      width: 100%;
+    }
+    .col-xs-9 {
+      margin-bottom: 10vh;
+    }
+    .my-face {
+      width: 75%;
+      &:hover {
+
+      }
+    }
+    #businesses {
+      .col-sm-4 {
+        height: 33.33vh;
+        background-size: cover;
+        &:nth-of-type(1) {
+          background-image: url('../img/eatsmpl.png');
+          background-position: center;
+        }
+        &:nth-of-type(2) {
+          background-image: url('../img/dialup.png');
+          background-position: top;
+        }
+        &:nth-of-type(3) {
+          background-image: url('../img/linehop.png');
+          background-position: top;
+        }
+      }
+    }
+    #projects {
+      .col-sm-4 {
+        height: 33.33vh;
+        background-size: cover;
+        &:nth-of-type(1) {
+          background-image: url('../img/fuckyoujs.png');
+          background-position: top;
+        }
+        &:nth-of-type(2) {
+          background-image: url('../img/peach.png');
+          background-position: top;
+        }
+        &:nth-of-type(3) {
+          background-image: url('../img/instagrumble.png');
+          background-position: top;
+        }
+        &:nth-of-type(4) {
+          background-image: url('../img/bbn.png');
+          background-position: top;
+        }
+        &:nth-of-type(5) {
+          background-image: url('../img/pawpal.jpg');
+          background-size: contain !important;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        &:nth-of-type(6) {
+          background-image: url('../img/reef.png');
+          background-position: top;
+        }
+      }
+    }
+  }
+}
